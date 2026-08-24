@@ -1,4 +1,18 @@
 const languageStorageKey = 'hokkyo-language';
+const designWidth = 424;
+const mobileBreakpoint = 500;
+
+function updateMobileScale() {
+    if (window.innerWidth <= mobileBreakpoint) {
+        document.documentElement.style.setProperty('--mobile-main-scale', String(window.innerWidth / designWidth));
+    } else {
+        document.documentElement.style.removeProperty('--mobile-main-scale');
+    }
+}
+
+updateMobileScale();
+window.addEventListener('resize', updateMobileScale);
+
 const japaneseTranslations = {
     languageToggle: '言語を切り替え',
     navReservation: '予約<br><span>Reservation</span>',

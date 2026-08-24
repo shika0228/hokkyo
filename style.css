@@ -38,14 +38,14 @@ body {
     .main {
         margin-left: 0;
         margin-right: 0;
-        zoom: calc(100vw / 424px);
+        zoom: var(--mobile-main-scale, 1);
     }
 
     .hamburger_button {
-        top: calc(12 / 424 * 100vw);
-        right: calc(12 / 424 * 100vw);
-        width: calc(57 / 424 * 100vw);
-        height: calc(61 / 424 * 100vw);
+        top: 2.8302vw;
+        right: 2.8302vw;
+        width: 13.4434vw;
+        height: 14.3868vw;
     }
 }
 
