@@ -28,10 +28,24 @@ body {
 }
 
 @media screen and (max-width:500px) {
+    html,
     body {
-        width: 424px;
+        width: 100%;
+        overflow-x: hidden;
         background: none;
+    }
+
+    .main {
+        margin-left: 0;
+        margin-right: 0;
         zoom: calc(100vw / 424px);
+    }
+
+    .hamburger_button {
+        top: calc(12 / 424 * 100vw);
+        right: calc(12 / 424 * 100vw);
+        width: calc(57 / 424 * 100vw);
+        height: calc(61 / 424 * 100vw);
     }
 }
 
