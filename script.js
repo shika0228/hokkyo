@@ -112,9 +112,8 @@ if (scrollImageWrapper) {
 
 const hamburgerButton = document.querySelector('.hamburger_button');
 const floatingNavigationMenu = document.querySelector('.floating_nav_menu');
-const introSection = document.querySelector('.intro');
 
-if (hamburgerButton && floatingNavigationMenu && introSection) {
+if (hamburgerButton && floatingNavigationMenu) {
     let isMenuOpen = false;
 
     function renderHamburgerButton() {
@@ -132,18 +131,6 @@ if (hamburgerButton && floatingNavigationMenu && introSection) {
         renderHamburgerButton();
     }
 
-    function syncHamburgerVisibility() {
-        const introHasEnteredViewport = introSection.getBoundingClientRect().top < window.innerHeight;
-        const pageHasStartedScrolling = window.scrollY > 1;
-        const shouldShowHamburger = introHasEnteredViewport && pageHasStartedScrolling;
-
-        hamburgerButton.classList.toggle('is-visible', shouldShowHamburger);
-
-        if (!shouldShowHamburger && isMenuOpen) {
-            setMenuOpen(false);
-        }
-    }
-
     hamburgerButton.addEventListener('click', () => {
         setMenuOpen(!isMenuOpen);
     });
@@ -152,12 +139,5 @@ if (hamburgerButton && floatingNavigationMenu && introSection) {
         link.addEventListener('click', () => setMenuOpen(false));
     });
 
-    window.addEventListener('scroll', syncHamburgerVisibility, { passive: true });
-    window.addEventListener('resize', syncHamburgerVisibility);
-    window.addEventListener('load', syncHamburgerVisibility);
-    window.addEventListener('pageshow', syncHamburgerVisibility);
-
     renderHamburgerButton();
-    syncHamburgerVisibility();
-    window.requestAnimationFrame(syncHamburgerVisibility);
 }

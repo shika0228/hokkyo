@@ -15,10 +15,6 @@
 
 <body>
     <img class="main_logo" src="img/logo.webp">
-    <button class="hamburger_button" type="button" aria-controls="floating_nav_menu" aria-expanded="false" aria-label="打开导航菜单">
-        <img class="hamburger_icon_open" src="img/hamberger_open.svg" alt="">
-        <img class="hamburger_icon_close" src="img/hamberger_close.svg" alt="">
-    </button>
     <main class="main" id="main">
         <section class="kv">
             <img class="deco_frame" src="img/deco_frame.webp">
@@ -54,6 +50,39 @@
                 </li>
             </ul>
         </section>
+        <div class="after_kv">
+            <div class="hamburger_sticky">
+                <button class="hamburger_button" type="button" aria-controls="floating_nav_menu" aria-expanded="false" aria-label="打开导航菜单">
+                    <img class="hamburger_icon_open" src="img/hamberger_open.svg" alt="">
+                    <img class="hamburger_icon_close" src="img/hamberger_close.svg" alt="">
+                </button>
+                <ul class="floating_nav_menu" id="floating_nav_menu" aria-hidden="true">
+                    <li class="nav">
+                        <a href="#reservation">
+                            <img src="img/icon_reservation.svg">
+                            <p data-i18n="navReservation">预约<br>
+                                <span>Reservation</span>
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav">
+                        <a href="#menu">
+                            <img src="img/icon_menu.svg">
+                            <p data-i18n="navMenu">菜单<br>
+                                <span>menu</span>
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav">
+                        <a href="#location">
+                            <img src="img/icon_location.svg">
+                            <p data-i18n="navLocation">店铺<br>
+                                <span>Location</span>
+                            </p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         <section class="intro">
             <img class="intro_top_deco" src="img/deco_ribbon.webp">
             <p class="intro_text" data-i18n="introText">
@@ -230,33 +259,8 @@
             <img class="footer_deco_frame" id="footer_deco_frame_1" src="img/deco_frame.webp">
             <img class="footer_deco_frame" id="footer_deco_frame_2" src="img/deco_frame.webp">
         </footer>
+        </div>
     </main>
-    <ul class="floating_nav_menu" id="floating_nav_menu" aria-hidden="true">
-        <li class="nav">
-            <a href="#reservation">
-                <img src="img/icon_reservation.svg">
-                <p data-i18n="navReservation">预约<br>
-                    <span>Reservation</span>
-                </p>
-            </a>
-        </li>
-        <li class="nav">
-            <a href="#menu">
-                <img src="img/icon_menu.svg">
-                <p data-i18n="navMenu">菜单<br>
-                    <span>menu</span>
-                </p>
-            </a>
-        </li>
-        <li class="nav">
-            <a href="#location">
-                <img src="img/icon_location.svg">
-                <p data-i18n="navLocation">店铺<br>
-                    <span>Location</span>
-                </p>
-            </a>
-        </li>
-    </ul>
     <script src="script.js">
     </script>
 </body>
