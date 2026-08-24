@@ -47,6 +47,10 @@ body {
         width: 13.4434vw;
         height: 14.3868vw;
     }
+
+    .nav_menu.is-fixed-open {
+        zoom: var(--mobile-main-scale, 1);
+    }
 }
 
 .main {

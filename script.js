@@ -2,9 +2,13 @@ const languageStorageKey = 'hokkyo-language';
 const designWidth = 424;
 const mobileBreakpoint = 500;
 
+function getMobileScale() {
+    return window.innerWidth <= mobileBreakpoint ? window.innerWidth / designWidth : 1;
+}
+
 function updateMobileScale() {
     if (window.innerWidth <= mobileBreakpoint) {
-        document.documentElement.style.setProperty('--mobile-main-scale', String(window.innerWidth / designWidth));
+        document.documentElement.style.setProperty('--mobile-main-scale', String(getMobileScale()));
     } else {
         document.documentElement.style.removeProperty('--mobile-main-scale');
     }
@@ -112,12 +116,18 @@ const keyVisual = document.querySelector('.kv');
 
 if (hamburgerButton && navigationMenu && keyVisual) {
     let isMenuOpen = false;
+    const navigationMenuParent = navigationMenu.parentNode;
+    const navigationMenuNextSibling = navigationMenu.nextSibling;
 
     function updateNavigationMenuTop() {
+        if (isMenuOpen) {
+            return;
+        }
+
         const wasFixedOpen = navigationMenu.classList.contains('is-fixed-open');
 
         navigationMenu.classList.remove('is-fixed-open');
-        const menuTop = navigationMenu.getBoundingClientRect().top + window.scrollY;
+        const menuTop = (navigationMenu.getBoundingClientRect().top + window.scrollY) / getMobileScale();
         navigationMenu.style.setProperty('--nav-menu-top', `${menuTop}px`);
 
         navigationMenu.classList.toggle('is-fixed-open', wasFixedOpen);
@@ -132,7 +142,19 @@ if (hamburgerButton && navigationMenu && keyVisual) {
     }
 
     function setMenuOpen(shouldOpen) {
+        if (shouldOpen && !isMenuOpen) {
+            updateNavigationMenuTop();
+        }
+
         isMenuOpen = shouldOpen;
+
+        if (isMenuOpen) {
+            document.body.append(navigationMenu);
+        } else if (navigationMenu.parentNode !== navigationMenuParent) {
+            navigationMenu.classList.remove('is-fixed-open');
+            navigationMenuParent.insertBefore(navigationMenu, navigationMenuNextSibling);
+        }
+
         navigationMenu.classList.toggle('is-fixed-open', isMenuOpen);
         renderHamburgerButton();
     }
