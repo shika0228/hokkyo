@@ -1,0 +1,778 @@
+* {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: url('./img/main_bg.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.main_logo {
+    width: 146.6px;
+    position: fixed;
+    z-index: 999;
+    top: calc(24vw/14.4);
+    left: calc(36vw/14.4);
+}
+@media screen and (max-width:800px){
+    .main_logo{
+        display: none;
+    }
+}
+
+@media screen and (max-width:500px) {
+    body {
+        width: 424px;
+        background: none;
+        zoom: calc(100vw / 424px);
+    }
+}
+
+.main {
+    position: relative;
+    margin: 0 auto;
+    width: 424px;
+    overflow: hidden;
+    background-color: #4B382C;
+    ;
+}
+
+.kv {
+    width: 424px;
+    height: 670px;
+    background-image: url('./img/kv.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.deco_frame {
+    width: 124px;
+    margin: 12px 0 0 12px;
+}
+
+.logo {
+    position: absolute;
+    width: 100px;
+    top: 50px;
+    left: 50px;
+}
+
+.lang_change {
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    top: 0;
+    right: 0;
+    background-color: #B4915A;
+}
+
+.lang_change {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 64px;
+    height: 64px;
+    background-color: #B4915A;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    font-size: 10px;
+    padding: 0;
+    border: 0;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.lang_change img {
+    width: 24px;
+}
+
+.hamburger_button {
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    z-index: 1001;
+    width: 57px;
+    height: 61px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-80px);
+    transition: opacity 0.35s ease, transform 0.35s ease, visibility 0s linear 0.35s;
+}
+
+.hamburger_button.is-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+    transition-delay: 0s;
+}
+
+.hamburger_button img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.hamburger_button:focus-visible {
+    outline: 2px solid #EBDBC2;
+    outline-offset: 4px;
+}
+
+/*---------------------
+--------nav_menu-------*/
+.nav_menu {
+    position: absolute;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+    gap: 30px;
+    margin: 123px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav_menu.is-fixed-open {
+    position: fixed;
+    top: calc(var(--nav-menu-top, 123px) - 150px);
+    right: 0;
+    z-index: 1000;
+    margin: 0;
+}
+
+.nav a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    gap: 29px;
+    width: 208px;
+    height: 62px;
+    border-radius: 5px 0 0 5px;
+    border: 2px solid #B4915A;
+    background: linear-gradient(90deg, rgba(47, 33, 10, 0.92) 0%, rgba(4, 4, 4, 0.92) 100%);
+}
+
+.nav img {
+    width: 20px;
+}
+
+.nav p {
+    margin-right: 36px;
+    color: #FFD798;
+    font-family: "Noto Serif SC";
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1em;
+    text-align: center;
+}
+
+.nav p span {
+    font-family: "Noto Sans JP";
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 0.09px;
+}
+
+@media screen and (min-width: 501px) {
+    .hamburger_button {
+        right: calc(50% - 200px);
+    }
+
+    .nav_menu.is-fixed-open {
+        right: calc(50% - 212px);
+    }
+}
+
+/*---------------------
+---------intro--------*/
+.intro {
+    width: 100%;
+    height: 815.12px;
+    border-radius: 0 0 190px 190px;
+    background-image: linear-gradient(180deg, #F0ECE5 0%, #EBDBC1 100%), url('./img/intro_bg.webp');
+    background-size: contain;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.intro_top_deco {
+    width: 381px;
+}
+
+.intro_text {
+    display: block;
+    width: 370px;
+    color: #826536;
+    text-align: center;
+    font-family: "Noto Serif SC";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 71px;
+}
+
+.intro_text span {
+    font-family: "Long Cang";
+    font-size: 48px;
+    font-weight: 400;
+    letter-spacing: 4.32px;
+}
+
+html[lang="ja"] .intro_text span,
+html[lang="ja"] .reservation h2,
+html[lang="ja"] .menu_course h2,
+html[lang="ja"] .menu_single h2,
+html[lang="ja"] .location_title h2,
+html[lang="ja"] .back_btn,
+html[lang="ja"] .menu_list h2 {
+    font-family: "Yuji Syuku", serif;
+}
+
+/*------------------------------
+-----------scroll_img-----------*/
+.scroll_img_wrapper {
+    display: flex;
+    width: max-content;
+    align-items: center;
+    align-self: flex-start;
+    margin-bottom: 130px;
+    animation: scroll-images-right 36s linear infinite;
+    will-change: transform;
+}
+
+.scroll_img_group {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex: 0 0 auto;
+    padding-right: 32px;
+}
+
+@keyframes scroll-images-right {
+    from {
+        transform: translateX(-50%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .scroll_img_wrapper {
+        animation: none;
+        transform: translateX(0);
+    }
+}
+
+.scroll_img {
+    display: block;
+    width: 173px;
+    height:117.352px;
+    flex-shrink: 0;
+    background: #fff;
+    box-shadow: 4px 4px 0 0 #B4915A;
+}
+.scroll_img img{
+   width:173px;
+}
+
+/*------------------------------
+-----------reservation----------*/
+.reservation {
+    width: 100%;
+    height: 703.88px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.reservation_title {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    top: -100px;
+}
+
+.reservation_title img {
+    width: 56px;
+}
+
+.reservation h2 {
+    color: #B4915A;
+    text-align: center;
+    font-family: "Long Cang";
+    font-size: 64px;
+    font-weight: 400;
+    line-height: 70px;
+    margin: 0;
+}
+
+.reservation_title p {
+    color: #EBDBC2;
+    text-align: center;
+    font-family: "Long Cang";
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 20px;
+    margin: 0;
+}
+
+.additional_text {
+    margin-top: 92px;
+    color: #EBDBC2;
+    text-align: center;
+    font-family: "Noto Serif SC";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 2.08px;
+}
+
+.reservation_btn_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    list-style: none;
+    padding: 0;
+}
+
+.reservation_btn {
+    text-decoration: none;
+}
+
+.reservation_btn a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 267px;
+    height: 68px;
+    border-radius: 1px;
+    border: 3px solid #B4915A;
+    background: #EBDBC2;
+    text-decoration: none;
+    color: #000;
+}
+
+#tabelog_btn img {
+    width: 157px;
+    margin-right: 20px;
+}
+
+#hotpepper_btn img {
+    width: 108px;
+}
+
+#wechat_btn {
+    display: flex;
+    text-align: center;
+    font-family: "Noto Sans SC";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.84px;
+}
+
+#wechat_btn img {
+    width: 56px;
+    margin-right: 16px;
+}
+
+.tel_reservation,
+.time_reservation {
+    color: #EBDBC2;
+    text-align: center;
+    font-family: "Noto Sans SC";
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.78px;
+}
+
+.tel_reservation span,
+.time_reservation span {
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.6px;
+}
+
+.reservation_deco_line {
+    position: absolute;
+    width: 11.912px;
+    bottom: 340px;
+}
+
+#reservation_deco_line_1 {
+    right: 12px;
+}
+
+#reservation_deco_line_2 {
+    left: 12px;
+}
+
+/*------------------------------
+-------------menu---------------*/
+.menu {
+    position: relative;
+    width: 100%;
+    height: 1095px;
+    background-image: url('./img/menu_bg.webp');
+    background-color: #541A1A;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: multiply;
+    padding: 42px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 42px;
+}
+
+.menu_deco_title {
+    width: 63px;
+    position: absolute;
+    top: 0;
+    right: 42px;
+}
+
+.menu_course {
+    width: fit-content;
+}
+
+.menu_course h2 {
+    color: #FFF;
+    font-family: "Long Cang";
+    font-size: 32px;
+    font-weight: 400;
+    margin-top: 0;
+}
+
+.course_img {
+    width: 255px;
+    height: 166px;
+    background-image: url('./img/menu_course.webp');
+    background-position: center;
+    background-repeat: none;
+    background-size: contain;
+}
+
+.hot_mark {
+    width: 52px;
+}
+
+.course_info {
+    margin-top: 17px;
+    width: 365px;
+}
+
+.menu_single {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu_single h2 {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 34px;
+    color: #FFF;
+    font-family: "Long Cang";
+    font-size: 32px;
+    font-weight: 400;
+    margin-top: 0;
+}
+
+.menu_single_grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 23px;
+}
+
+.single_items {
+    position: relative;
+}
+
+.single_items img {
+    width: 171px;
+}
+
+.single_items p {
+    margin: 0;
+    color: #FFF;
+    font-family: "Noto Serif SC";
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 1.32px;
+}
+
+.all_menu_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    width: 219.882px;
+    height: 56px;
+    border-radius: 1px;
+    border: 3px solid #B4915A;
+    background: #EBDBC2;
+    color: #423126;
+    text-align: center;
+    font-family: "Noto Serif SC";
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 16px;
+    letter-spacing: 2.24px;
+}
+
+/*------------------------------
+-------------location-----------*/
+.location {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 36px;
+    width: 100%;
+    background: #EFE9DF;
+}
+
+.location_title {
+    margin-top:64px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.location_title img {
+    width: 56px;
+}
+
+.location_title h2 {
+    color: #423126;
+    font-family: "Long Cang";
+    font-size: 32px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.map_wrapper h3 {
+    color: #000;
+    font-family: "Noto Serif SC";
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.map_wrapper p {
+    color: #000;
+    font-family: "Noto Serif SC";
+    font-size: 10px;
+    font-weight: 500;
+    margin: 6px 0 12px 0;
+}
+
+.map_wrapper iframe {
+    width: 366px;
+    height: 131px;
+    border-radius: 3px;
+    background: url(<path-to-image>) lightgray 50% / cover no-repeat;
+    box-shadow: 5px 6px 0 0 #B4915A;
+}
+
+/*------------------------------
+-------------Footer-----------*/
+.footer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 42px;
+    width: 424px;
+    height: 486px;
+    background: #541A1A;
+}
+
+.footer_logo {
+    width: 88.27px;
+}
+
+.footer p {
+    display: block;
+    color: #FFF;
+    text-align: center;
+    font-family: "Noto Sans SC";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0.64px;
+}
+
+.footer_icon_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.footer_icon_btn a {
+    width: 43px;
+    height: 43px;
+}
+
+.footer_icon_btn a img {
+    width: 100%;
+}
+
+.footer_deco_frame {
+    position: absolute;
+    width: 124px;
+}
+
+#footer_deco_frame_1 {
+    top: 12px;
+    left: 12px;
+}
+
+#footer_deco_frame_2 {
+    bottom: 12px;
+    right: 12px;
+    transform: rotate(180deg);
+}
+
+/*-------------------------------
+-----------menu_page------------*/
+#menu_main {
+    position: relative;
+    background-image: url('./img/menu_bg.webp');
+    background-color: #541A1A;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: multiply;
+    padding-bottom: 64px;
+}
+
+.back_btn {
+    position: fixed;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #EBDBC2;
+    font-family: "Long Cang";
+    font-size: 20px;
+    font-weight: 400;
+    text-decoration: none;
+    margin: 35px 0 0 28px;
+}
+
+.back_btn img {
+    width: 62px;
+}
+
+.menu_wrapper {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 64px;
+    margin-top: 102px;
+}
+
+.menu_list h2 {
+    width: 100%;
+    color: #FFF;
+    font-family: "Long Cang";
+    font-size: 32px;
+    font-weight: 400;
+    margin-top: 0;
+}
+
+.hot_label {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFF;
+    font-family: "Noto Serif SC";
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3.6px;
+    width: 58px;
+    height: 17.288px;
+    border-radius: 3px;
+    border: 1px solid #8A5606;
+    background: linear-gradient(90deg, rgba(255, 221, 167, 0.92) 0%, rgba(154, 108, 55, 0.92) 100%);
+}
+
+.top_btn {
+    width:100px;
+    height:100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:6px;
+    color: #EBDBC2;
+    font-family: "Noto Serif SC";
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration:none;
+    margin:68px auto;
+}
+.menu_logo{
+    display:block;
+    width:88.27px;
+    margin:0 auto;
+}
+#top_btn_1{
+     color: #541A1A;   
+     margin:0;
+}

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--------------fonts------------------->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Long+Cang&family=Noto+Sans+SC:wght@100..900&family=Noto+Serif+SC:wght@200..900&family=Yuji+Syuku&display=swap"
+        rel="stylesheet">
+    <!--------------StyleSheet------------------->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <img class="main_logo" src="img/logo.webp">
+    <button class="hamburger_button" type="button" aria-controls="nav_menu" aria-expanded="false">
+        <img src="img/hamberger_open.svg" alt="打开导航菜单">
+    </button>
+    <main class="main" id="main">
+        <section class="kv">
+            <img class="deco_frame" src="img/deco_frame.webp">
+            <img class="logo" src="img/logo.webp">
+            <button class="lang_change" type="button" aria-label="切换语言">
+                <img src="img/language.webp" alt="">
+                <span data-i18n="languageToggle">切换语言</span>
+            </button>
+            <ul class="nav_menu" id="nav_menu">
+                <li class="nav">
+                    <a href="#reservation">
+                        <img src="img/icon_reservation.svg">
+                        <p data-i18n="navReservation">预约<br>
+                            <span>Reservation</span>
+                        </p>
+                    </a>
+                </li>
+                <li class="nav">
+                    <a href="#menu">
+                        <img src="img/icon_menu.svg">
+                        <p data-i18n="navMenu">菜单<br>
+                            <span>menu</span>
+                        </p>
+                    </a>
+                </li>
+                <li class="nav">
+                    <a href="#location">
+                        <img src="img/icon_location.svg">
+                        <p data-i18n="navLocation">店铺<br>
+                            <span>Location</span>
+                        </p>
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <section class="intro">
+            <img class="intro_top_deco" src="img/deco_ribbon.webp">
+            <p class="intro_text" data-i18n="introText">
+                远离尘嚣,源自北纬45°的自然馈赠。<br>
+                <span>北境</span>以现代料理之眼，<br>
+                重新诠释东北大地的深厚风土。<br>
+                严选长白山野生榛蘑、黑松露与顶级和牛，结合传统铸铁慢炖与现代低温熟成技术。在冰雪与炭火的交织中，呈现一场极具沉浸感的高级美味盛宴。
+            </p>
+            <div class="scroll_img_wrapper">
+                <div class="scroll_img_group">
+                    <div class="scroll_img">
+                       <img src="menu_img/1_2.webp">
+                    </div>
+                    <div class="scroll_img">
+                        <img src="menu_img/3_2.webp">
+                    </div>
+                    <div class="scroll_img">
+                        <img src="menu_img/4_1.webp">
+                    </div>
+                    <div class="scroll_img">
+                        <img src="menu_img/5_1.webp">
+                    </div>
+                    <div class="scroll_img">
+                        <img src="menu_img/5_2.webp">
+                    </div>
+                    <div class="scroll_img">
+                        <img src="menu_img/1_3.webp">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="reservation" id="reservation">
+            <div class="reservation_title">
+                <img src="img/deco_cloud.webp">
+                <h2 data-i18n="reservationTitle">
+                    预<br>
+                    约
+                </h2>
+                <p>reservation</p>
+            </div>
+            <p class="additional_text" data-i18n="reservationHint">
+                点击以下平台均可预约
+            </p>
+            <ul class="reservation_btn_wrapper">
+                <li class="reservation_btn" id="tabelog_btn">
+                    <a href="">
+                        <img src="img/tablog.webp">
+                    </a>
+                </li>
+                <li class="reservation_btn" id="hotpepper_btn">
+                    <a href="">
+                        <img src="img/hotpepper.webp">
+                    </a>
+                </li>
+                <li class="reservation_btn" id="wechat_btn">
+                    <a href="">
+                        <img src="img/wechat.webp">
+                        <p data-i18n="wechatHint"> 微信添加好友<br>
+                            可获取最新优惠活动</p>
+                    </a>
+                </li>
+            </ul>
+            <p class="tel_reservation" data-i18n="phoneReservation">
+                【电话预约】<br>
+                03-XXXX-8888<br>
+                <span>电话接听时间：15:00 - 22:00</span>
+            </p>
+            <p class="time_reservation" data-i18n="businessHours">
+                【营业时间】<br>
+                <span>
+                    午餐： 11:30 - 14:30（L.O. 14:00）<br>
+                    晚餐： 17:30 - 22:30（L.O. 21:30）<br>
+                    定休日：每周一（毎週月曜日）/ 年末年始</span>
+            </p>
+            <img class="reservation_deco_line" id="reservation_deco_line_1" src="img/deco_line.webp">
+            <img class="reservation_deco_line" id="reservation_deco_line_2" src="img/deco_line.webp">
+
+        </section>
+        <section class="menu" id="menu">
+            <div class="menu_course">
+                <img class="menu_deco_title" src="img/deco_menu.webp">
+                <h2 data-i18n="courseTitle">聚会首选套餐</h2>
+                <div class="course_img">
+                    <img class="hot_mark" src="img/hot-mark.webp">
+                </div>
+                <img class="course_info" src="img/course_info.svg" draggable="false">
+            </div>
+            <div class="menu_single">
+                <h2 data-i18n="singleTitle">招牌特色单品</h2>
+                <div class="menu_single_grid">
+                    <div class="single_items">
+                        <img src="img/menu_1.webp">
+                        <p data-i18n="dishGuobao">柚香琥珀锅包肉</p>
+                    </div>
+                    <div class="single_items">
+                        <img src="img/menu_2.webp">
+                        <p data-i18n="dishWagyuSkewer">炭火雪花和牛大串</p>
+                    </div>
+                    <div class="single_items">
+                        <img src="img/menu_3.webp">
+                        <p data-i18n="dishTruffleDumplings">黑松露酸菜和牛水饺</p>
+                    </div>
+                    <div class="single_items">
+                        <img src="img/menu_4.webp">
+                        <p data-i18n="dishCrab">延边雪原酱腌红膏蟹</p>
+                    </div>
+                    <div class="single_items">
+                        <img src="img/menu_5.webp">
+                        <p data-i18n="dishMatsutakeChicken">生铁锅炖长白山松茸鸡</p>
+                    </div>
+                    <div class="single_items">
+                        <img src="img/menu_6.webp">
+                        <p data-i18n="dishSweetPotato">冰晶金丝拔丝地瓜</p>
+                    </div>
+                </div>
+            </div>
+            <a href="menu.html" class="all_menu_btn" data-i18n="allMenu">
+                查看全部菜单
+            </a>
+        </section>
+        <section class="location" id="location">
+            <div class="location_title">
+                <img src="img/deco_cloud.webp">
+                <h2 data-i18n="locationTitle">店铺地址</h2>
+            </div>
+            <div class="map_wrapper">
+                <h3> 銀座本店</h3>
+                <p>〒104-0061 東京都中央区銀座 7-9-18 HOKKYO GINZA TOWER B1F</p>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.1658819988124!2d139.7632113253673!3d35.67291728043139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188be430b7d8a7%3A0x627e0378194afc29!2s3-ch%C5%8Dme-4%20Ginza%2C%20Chuo%20City%2C%20Tokyo%20104-0061!5e0!3m2!1szh-CN!2sjp!4v1787284113752!5m2!1szh-CN!2sjp"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+            <div class="map_wrapper">
+                <h3>上野店</h3>
+                <p>〒110-0005 東京都台東区上野 2-13-10 UENO PARK SIDE SQUARE 2F</p>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.652734395932!2d139.77039387536908!3d35.710162328384925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188e9e214fc825%3A0x9a84b181bede8806!2s2-ch%C5%8Dme-13-10%20Ueno%2C%20Taito%20City%2C%20Tokyo%20110-0005!5e0!3m2!1szh-CN!2sjp!4v1787284267360!5m2!1szh-CN!2sjp"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+            <div class="map_wrapper">
+                <h3>新宿店</h3>
+                <p>〒160-0022 東京都新宿区新宿 3-18-12 SHINJUKU CREST BLDG 3F</p>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.3789470138076!2d139.69987137536825!3d35.69229132936698!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cda192a01ab%3A0xf71727836378e3b6!2s3-ch%C5%8Dme-18%20Shinjuku%2C%20Shinjuku%20City%2C%20Tokyo%20160-0022!5e0!3m2!1szh-CN!2sjp!4v1787284335472!5m2!1szh-CN!2sjp"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+                    <a href="#main" class="top_btn" id="top_btn_1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="33" height="15" viewBox="0 0 33 15" fill="none">
+                <path d="M16.0215 0L32.043 14.25H1.52588e-05L16.0215 0Z" fill="#541A1A" />
+            </svg>
+            TOP
+        </a>
+        </section>
+        <footer class="footer" id="footer">
+            <img class="footer_logo" src="img/logo.webp">
+            <p data-i18n="footerHours">【营业时间】<br>
+                午餐： 11:30 - 14:30（L.O. 14:00）<br>
+                晚餐： 17:30 - 22:30（L.O. 21:30）<br>
+                定休日：每周一/ 年末年始</p>
+            <div class="footer_icon_btn">
+                <a href="">
+                    <img src="img/facebook.webp">
+                </a>
+                <a href="">
+                    <img src="img/ins.webp">
+                </a>
+                <a href="">
+                    <img src="img/x.webp">
+                </a>
+            </div>
+            <img class="footer_deco_frame" id="footer_deco_frame_1" src="img/deco_frame.webp">
+            <img class="footer_deco_frame" id="footer_deco_frame_2" src="img/deco_frame.webp">
+        </footer>
+    </main>
+    <script src="script.js">
+    </script>
+</body>
+
+</html>
