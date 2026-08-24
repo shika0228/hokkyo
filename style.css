@@ -51,9 +51,14 @@ body {
     position: relative;
     margin: 0 auto;
     width: 424px;
-    overflow: visible;
+    overflow: hidden;
     background-color: #4B382C;
     ;
+}
+
+/* 首页的粘性汉堡菜单需要越出主容器显示。 */
+#main {
+    overflow: visible;
 }
 
 .kv {
