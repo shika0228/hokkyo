@@ -112,9 +112,9 @@ if (scrollImageWrapper) {
 
 const hamburgerButton = document.querySelector('.hamburger_button');
 const floatingNavigationMenu = document.querySelector('.floating_nav_menu');
-const keyVisual = document.querySelector('.kv');
+const introSection = document.querySelector('.intro');
 
-if (hamburgerButton && floatingNavigationMenu && keyVisual) {
+if (hamburgerButton && floatingNavigationMenu && introSection) {
     let isMenuOpen = false;
 
     function renderHamburgerButton() {
@@ -133,11 +133,13 @@ if (hamburgerButton && floatingNavigationMenu && keyVisual) {
     }
 
     function syncHamburgerVisibility() {
-        const hasScrolledPastKeyVisual = keyVisual.getBoundingClientRect().bottom <= 0;
+        const introHasEnteredViewport = introSection.getBoundingClientRect().top < window.innerHeight;
+        const pageHasStartedScrolling = window.scrollY > 1;
+        const shouldShowHamburger = introHasEnteredViewport && pageHasStartedScrolling;
 
-        hamburgerButton.classList.toggle('is-visible', hasScrolledPastKeyVisual);
+        hamburgerButton.classList.toggle('is-visible', shouldShowHamburger);
 
-        if (!hasScrolledPastKeyVisual && isMenuOpen) {
+        if (!shouldShowHamburger && isMenuOpen) {
             setMenuOpen(false);
         }
     }
@@ -152,7 +154,10 @@ if (hamburgerButton && floatingNavigationMenu && keyVisual) {
 
     window.addEventListener('scroll', syncHamburgerVisibility, { passive: true });
     window.addEventListener('resize', syncHamburgerVisibility);
+    window.addEventListener('load', syncHamburgerVisibility);
+    window.addEventListener('pageshow', syncHamburgerVisibility);
 
     renderHamburgerButton();
     syncHamburgerVisibility();
+    window.requestAnimationFrame(syncHamburgerVisibility);
 }
