@@ -111,27 +111,11 @@ if (scrollImageWrapper) {
 }
 
 const hamburgerButton = document.querySelector('.hamburger_button');
-const navigationMenu = document.querySelector('.nav_menu');
+const floatingNavigationMenu = document.querySelector('.floating_nav_menu');
 const keyVisual = document.querySelector('.kv');
 
-if (hamburgerButton && navigationMenu && keyVisual) {
+if (hamburgerButton && floatingNavigationMenu && keyVisual) {
     let isMenuOpen = false;
-    const navigationMenuParent = navigationMenu.parentNode;
-    const navigationMenuNextSibling = navigationMenu.nextSibling;
-
-    function updateNavigationMenuTop() {
-        if (isMenuOpen) {
-            return;
-        }
-
-        const wasFixedOpen = navigationMenu.classList.contains('is-fixed-open');
-
-        navigationMenu.classList.remove('is-fixed-open');
-        const menuTop = (navigationMenu.getBoundingClientRect().top + window.scrollY) / getMobileScale();
-        navigationMenu.style.setProperty('--nav-menu-top', `${menuTop}px`);
-
-        navigationMenu.classList.toggle('is-fixed-open', wasFixedOpen);
-    }
 
     function renderHamburgerButton() {
         hamburgerButton.classList.toggle('is-open', isMenuOpen);
@@ -142,20 +126,9 @@ if (hamburgerButton && navigationMenu && keyVisual) {
     }
 
     function setMenuOpen(shouldOpen) {
-        if (shouldOpen && !isMenuOpen) {
-            updateNavigationMenuTop();
-        }
-
         isMenuOpen = shouldOpen;
-
-        if (isMenuOpen) {
-            document.body.append(navigationMenu);
-        } else if (navigationMenu.parentNode !== navigationMenuParent) {
-            navigationMenu.classList.remove('is-fixed-open');
-            navigationMenuParent.insertBefore(navigationMenu, navigationMenuNextSibling);
-        }
-
-        navigationMenu.classList.toggle('is-fixed-open', isMenuOpen);
+        floatingNavigationMenu.classList.toggle('is-open', isMenuOpen);
+        floatingNavigationMenu.setAttribute('aria-hidden', String(!isMenuOpen));
         renderHamburgerButton();
     }
 
@@ -173,18 +146,13 @@ if (hamburgerButton && navigationMenu && keyVisual) {
         setMenuOpen(!isMenuOpen);
     });
 
-    navigationMenu.querySelectorAll('a').forEach((link) => {
+    floatingNavigationMenu.querySelectorAll('a').forEach((link) => {
         link.addEventListener('click', () => setMenuOpen(false));
     });
 
     window.addEventListener('scroll', syncHamburgerVisibility, { passive: true });
-    window.addEventListener('resize', () => {
-        updateNavigationMenuTop();
-        syncHamburgerVisibility();
-    });
-    window.addEventListener('load', updateNavigationMenuTop);
+    window.addEventListener('resize', syncHamburgerVisibility);
 
-    updateNavigationMenuTop();
     renderHamburgerButton();
     syncHamburgerVisibility();
 }
