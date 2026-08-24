@@ -65,12 +65,11 @@ function applyLanguage(language) {
     }
 
     const hamburgerButton = document.querySelector('.hamburger_button');
-    const hamburgerImage = hamburgerButton?.querySelector('img');
-    if (hamburgerButton && hamburgerImage) {
+    if (hamburgerButton) {
         const isMenuOpen = hamburgerButton.getAttribute('aria-expanded') === 'true';
-        hamburgerImage.alt = language === 'ja'
+        hamburgerButton.setAttribute('aria-label', language === 'ja'
             ? (isMenuOpen ? 'ナビゲーションを閉じる' : 'ナビゲーションを開く')
-            : (isMenuOpen ? '关闭导航菜单' : '打开导航菜单');
+            : (isMenuOpen ? '关闭导航菜单' : '打开导航菜单'));
     }
 }
 
@@ -98,11 +97,6 @@ const navigationMenu = document.querySelector('.nav_menu');
 const keyVisual = document.querySelector('.kv');
 
 if (hamburgerButton && navigationMenu && keyVisual) {
-    const hamburgerImage = hamburgerButton.querySelector('img');
-    const hamburgerImages = {
-        open: 'img/hamberger_open.svg',
-        close: 'img/hamberger_close.svg',
-    };
     let isMenuOpen = false;
 
     function updateNavigationMenuTop() {
@@ -116,10 +110,10 @@ if (hamburgerButton && navigationMenu && keyVisual) {
     }
 
     function renderHamburgerButton() {
-        hamburgerImage.src = isMenuOpen ? hamburgerImages.close : hamburgerImages.open;
-        hamburgerImage.alt = currentLanguage === 'ja'
+        hamburgerButton.classList.toggle('is-open', isMenuOpen);
+        hamburgerButton.setAttribute('aria-label', currentLanguage === 'ja'
             ? (isMenuOpen ? 'ナビゲーションを閉じる' : 'ナビゲーションを開く')
-            : (isMenuOpen ? '关闭导航菜单' : '打开导航菜单');
+            : (isMenuOpen ? '关闭导航菜单' : '打开导航菜单'));
         hamburgerButton.setAttribute('aria-expanded', String(isMenuOpen));
     }
 
